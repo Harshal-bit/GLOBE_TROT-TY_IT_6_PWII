@@ -10,10 +10,11 @@ import {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md px-10 md:px-20">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-lg px-10 md:px-20 ">
       {/* Left */}
-      <div className="relative flex items-center h-20 cursor-pointer my-auto">
+      <div className="relative flex items-center h-20 cursor-pointer my-auto ">
         <Image
+          
           src="/GlobeTrot.png"
           alt="GlobeTrot Logo"
           fill="true"
@@ -30,15 +31,15 @@ function Header() {
         ></input>
         <SearchIcon
           
-          className="hidden md:inline-flex h-8 flex-shrink-0 bg-blue-500 p-2 text-white rounded-full cursor-pointer md:mx-2"
+          className="hidden md:inline-flex h-8 flex-shrink-0 bg-blue-500 p-2 text-white rounded-full cursor-pointer md:mx-auto"
         />
       </div>
 
       {/* Right */}
       <div className="flex items-center space-x-4 justify-end text-gray-700">
-        <p className="hidden md:inline">Host Your Place</p>
-        <HomeIcon className=" invisible md:visible h-6"/>
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
+        <p className="hidden md:inline-block cursor-pointer">Host Your Place</p>
+        <HomeIcon className=" invisible md:visible h-6 cursor-pointer"/>
+        <div className="flex items-center space-x-2 border-2 p-2 rounded-full cursor-pointer">
           <ViewGridIcon className="h-6 "/>
           <UserCircleIcon className="h-6"/>
         </div>
