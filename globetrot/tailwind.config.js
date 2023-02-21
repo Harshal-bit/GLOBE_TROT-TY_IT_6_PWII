@@ -3,7 +3,7 @@ module.exports = {
   content: [
    
     // Or if using `src` directory:
-    "./src/components/*.js",
+    "./src/components/**/*.js",
     "./src/pages/*.js",
   ],
   theme: {
