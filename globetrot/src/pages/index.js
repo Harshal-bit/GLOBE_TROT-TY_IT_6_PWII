@@ -23,9 +23,15 @@ export default function Home() {
       <Header />
       {/* Banner */}
       <Banner/>
-      <main>
-        
+      <main className="max-w-7xl mx-auto px-8 sm:px-16">
+        <section className="pt-6">
+          <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
+        {/* Pull some data from server */}
+        </section>
       </main>
     </>
   );
+}
+export async function getStaticProps(){
+  
 }
