@@ -3,12 +3,15 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
+import Modal from "../components/Login/Modal"
+import { Fragment, useState } from "react";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
+  const [showModal,setShowModal]=useState(false);
   
 
   return (
@@ -26,9 +29,18 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
-        {/* Pull some data from server */}
+        Pull some data from server
         </section>
       </main>
+      <Fragment>
+        <div className="p-10 text-center">
+          <button onClick={() =>setShowModal(true)} className="text-white bg-blue-500 hover:bg-blue-800 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center mr-5">
+            Text Modal</button>
+        </div>
+        <Modal inVisible={showModal} onClose={()=>setShowModal(false)}/>
+      </Fragment> 
+
+      {/* <Try/> */}
     </>
   );
 }
