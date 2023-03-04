@@ -39,6 +39,9 @@ export default function Home() {
         </div>
         <Modal inVisible={showModal} onClose={()=>setShowModal(false)}/>
       </Fragment> 
+      <div>
+        <h1>hello</h1>
+      </div>
 
       {/* <Try/> */}
     </>
