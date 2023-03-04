@@ -65,7 +65,9 @@ function Flyout(props) {
       {isOpen && (
         <div ref={menuRef} className="absolute right-[20px] w-52 z-50 bg-white rounded-xl shadow-lg top-[85px]">
           <ul className="cursor-pointer my-3">
-            <li className="px-4 py-2 my-1 hover:bg-slate-100">Sign up</li>
+            <li className="px-4 py-2 my-1 hover:bg-slate-100">
+            <button onClick={() => setShowModal(true)}>Sign Up</button>
+            </li>
             <li className="px-4 py-2 my-1 hover:bg-slate-100">
               <button onClick={() => setShowModal(true)}>Log in</button>
             </li>

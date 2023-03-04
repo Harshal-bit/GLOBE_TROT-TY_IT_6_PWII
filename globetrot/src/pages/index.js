@@ -3,11 +3,8 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
-import Modal from "../components/Login/LoginModal"
-import { Fragment, useState } from "react";
-import Login from "../components/Login/Login"
-// import Phone from "../components/Login/Phone"
 
+import { Fragment, useState } from "react";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,19 +22,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* Header */}
-      {/* <Header /> */}
+      <Header />
       {/* Banner */}
-      {/* <Banner/> */}
-      {/* <main className="max-w-7xl mx-auto px-8 sm:px-16">
+      <Banner/>
+      <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
         Pull some data from server
         </section>
-      </main> */}
+      </main>
       
 
-      <Login/>
-      {/* <Phone/> */}
     </>
   );
 }
