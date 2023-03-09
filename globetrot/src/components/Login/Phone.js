@@ -10,7 +10,7 @@ const PhoneInputWithCountryCode = () => {
   };
 
   return (
-    <div className='p-5 rounded-2xl   items-center py-3 px-4 text-xl font-medium text-center text-gray-900 border border-gray-300 '>
+    <div className=' rounded-2xl   items-center py-3 px-5 text-xl font-medium text-center text-gray-900 border border-gray-300 '>
       <PhoneInput
         defaultCountry="IN"
         placeholder="phone number"
