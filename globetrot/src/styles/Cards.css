@@ -1,0 +1,33 @@
+.CardComponent{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px;
+}
+
+
+.CardImage > img{
+    border-radius: 15px;
+}
+
+.CardText{
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Rating{
+    display: flex;
+    align-content: center;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.Rating > p{
+    margin: 0;
+    padding-left: 10px;
+}
+
+.Title{
+    margin-top: 1px;
+}
+
