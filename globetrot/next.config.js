@@ -11,6 +11,13 @@ const nextConfig = {
         port: '',
         pathname: '/Harshal-bit/GLOBE_TROT-TY_IT_6_PWII/main/blob/cover.jpg',
       },
+      {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
+        port: '',
+        pathname: '/4w4l90bx9/smallTiles/**',
+      },
+      
     ],
   },
   
