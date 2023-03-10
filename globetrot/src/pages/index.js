@@ -11,10 +11,11 @@ import SmallCard from "../components/SmallCard/SmallCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ exploreData }) {
-  const [showModal,setShowModal]=useState(false);
-  
 
+  
+  export default function Home({ exploreData }) {
+    const [showModal,setShowModal]=useState(false);
+    
   return (
     <>
       <Head>
