@@ -52,7 +52,6 @@ const inter = Inter({ subsets: ["latin"] });
 
         </section>
       </main>
-      
 
     </>
   );
