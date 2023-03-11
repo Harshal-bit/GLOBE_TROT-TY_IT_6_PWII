@@ -1,19 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
+
 import { Inter } from "@next/font/google";
 import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
-import Modal from "../components/Login/Modal"
+
+
 import { Fragment, useState } from "react";
-
-
+import SmallCard from "../components/SmallCard/SmallCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  const [showModal,setShowModal]=useState(false);
-  
 
+  
+  export default function Home({ exploreData }) {
+    const [showModal,setShowModal]=useState(false);
+    
   return (
     <>
       <Head>
@@ -25,28 +27,46 @@ export default function Home() {
       {/* Header */}
       <Header />
       {/* Banner */}
-      <Banner/>
+      <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
-        Pull some data from server
+
+          {/* Pull some data from server */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+            {exploreData?.map((item) => (
+              <SmallCard
+                key={item.id}
+                img={item.img}
+                distance={item.distance}
+                location={item.location}
+              />
+            ))}
+
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+
         </section>
       </main>
-      <Fragment>
-        <div className="p-10 text-center">
-          <button onClick={() =>setShowModal(true)} className="text-white bg-blue-500 hover:bg-blue-800 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center mr-5">
-            Text Modal</button>
-        </div>
-        <Modal inVisible={showModal} onClose={()=>setShowModal(false)}/>
-      </Fragment> 
-      <div>
-        <h1>hello</h1>
-      </div>
 
-      {/* <Try/> */}
     </>
   );
 }
-// export async function getStaticProps(){
-  
-// }
+
+export async function getStaticProps() {
+  //const res = await fetch('http://localhost:4000/smallTile');
+
+  const res = await fetch("http://localhost:4000/smallTile");
+  const data = await res.json();
+  console.log(data);
+  return {
+    props: {
+      exploreData: data,
+    },
+  };
+}
+
