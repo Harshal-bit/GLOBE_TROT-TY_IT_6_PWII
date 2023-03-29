@@ -1,4 +1,5 @@
-const smallTileModel = require('../models/smallTile.model');
+const smallTileModel = require('../models/smallTile.model')
+
 
 exports.getSmallTile = async (req,res) => {
     const smallTile  = await smallTileModel.find();

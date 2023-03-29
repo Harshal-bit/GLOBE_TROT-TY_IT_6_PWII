@@ -29,7 +29,7 @@ export default function Home({ exploreData }) {
 
             {exploreData?.map((item) => (
               <SmallCard
-                key={item.id}
+                key={item._id}
                 img={item.img}
                 distance={item.distance}
                 location={item.location}
