@@ -1,71 +1,83 @@
-'use client';
-
-import qs from 'query-string';
+"use client"
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
-import { IconType } from "react-icons";
-
+import {useCallback} from "react";
+import qs from "query-string";
 interface CategoryBoxProps {
-  icon: IconType,
-  label: string;
+  img: string;
+  location: string;
+  distance: string;
   selected?: boolean;
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
-  icon: Icon,
-  label,
+  img,
+  location,
+  distance,
   selected,
 }) => {
   const router = useRouter();
   const params = useSearchParams();
 
-  const handleClick = useCallback(() => {
-    const newQuery: any = {
-      locationValue: params?.get('locationValue'),
-      guestCount: params?.get('guestCount'),
-      roomCount: params?.get('roomCount'),
-      bathroomCount: params?.get('bathroomCount'),
-      startDate: params?.get('startDate'),
-      endDate: params?.get('endDate'),
-      category: label
+  const handleClick = useCallback(()=>{
+
+    let currentQuery = {};
+
+    if(params){
+      currentQuery = qs.parse(params.toString());
     }
 
-    if (params?.get('category') === label) {
-      delete newQuery.category;
+    const updatedQuery: any = {
+      ...currentQuery,
+      category:location
+    }
+
+    if(params?.get('category') === location){
+      delete updatedQuery.category;
     }
 
     const url = qs.stringifyUrl({
       url: '/',
-      query: newQuery
-    }, { skipNull: true });
+      query: updatedQuery
+    },{skipNull:true})
 
     router.push(url);
-  }, [label, router, params]);
-
-  return ( 
-    <div
+  },[location, params, router])
+  
+  return (
+    <div 
       onClick={handleClick}
-      className={`
-        flex 
-        flex-col 
-        items-center 
-        justify-center 
-        gap-2
-        p-3
-        border-b-2
-        hover:text-neutral-800
-        transition
-        cursor-pointer
-        ${selected ? 'border-b-neutral-800' : 'border-transparent'}
-        ${selected ? 'text-neutral-800' : 'text-neutral-500'}
-      `}
+      className=
+        {`flex
+        
+        h-auto
+        w-auto
+        gap-2 
+        item-center 
+        m-2 mt-5 
+        space-x-4 
+        rounded-xl 
+        hover:bg-gray-200
+        hover:scale-105 
+        trasition 
+        transform 
+        duration-200 
+        ease-in-out
+        ${selected ? 'bg-gray-200 text-neutral-800' : 'border-transparent text-neutral-500 '}
+        `}
+        
     >
-      <Icon size={26} />
-      <div className="font-medium text-sm">
-        {label}
+      {/* Left */}
+      <div className="relative h-16 w-16">
+        <Image src={img} alt={location} className="rounded-lg" fill />
+      </div>
+      {/* Right */}
+      <div>
+        <h2>{location}</h2>
+        <h3 className=" text-sm text-gray-500">{distance}</h3>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default CategoryBox;

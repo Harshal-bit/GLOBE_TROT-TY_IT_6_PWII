@@ -1,17 +1,18 @@
 import { Nunito } from 'next/font/google'
+import './globals.css'
 
-import Navbar from '@/app/common/components/layout/Navbar';
+import Navbar from '@/app/common/components/navbar/Navbar';
 import LoginModal from '@/app/common/components/modals/LoginModal';
 import RegisterModal from '@/app/common/components/modals/RegisterModal';
-import SearchModal from '@/app/common/components/modals/SearchModal';
 import RentModal from '@/app/common/components/modals/RentModal';
 
-import './globals.css'
+
+
 import Banner from './common/components/layout/Banner';
 
 export const metadata = {
   title: 'GlobeTrot',
-  description: 'One stop  travel destination'
+  description: 'One stop travel destination'
 }
 
 const font = Nunito({ 
@@ -28,8 +29,8 @@ export default function RootLayout({
       <body className={font.className}>
         <LoginModal />
         <RegisterModal />
-        <SearchModal />
-        <RentModal />
+        <RentModal/>
+        
         {/* @ts-expect-error Server Component */}
         <Navbar />
         <Banner />

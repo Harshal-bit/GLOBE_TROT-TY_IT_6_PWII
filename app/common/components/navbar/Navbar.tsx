@@ -1,10 +1,11 @@
 import getCurrentUser from "@/app/common/actions/getCurrentUser";
 
-import Categories from "./Categories";
-import Container from "./Container";
+
+import Container from "../layout/Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import Categories from "./Categories";
 
 const Navbar = async () => {
   const currentUser = await getCurrentUser();

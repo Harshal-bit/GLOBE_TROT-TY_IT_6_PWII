@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
-import useLoginModal from "./useLoginModal";
+import useLoginModal from "../../hooks/useLoginModal";
 
 interface IUseFavorite {
   listingId: string;
