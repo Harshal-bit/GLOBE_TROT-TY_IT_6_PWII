@@ -36,7 +36,7 @@ export default async function RootLayout({
 
           {/* @ts-expect-error Server Component */}
           <Navbar currentUser={currentUser} />
-          {/* <Banner /> */}
+          <Banner />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
       </body>
