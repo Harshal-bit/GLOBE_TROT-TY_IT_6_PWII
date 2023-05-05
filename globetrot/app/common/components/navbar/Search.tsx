@@ -17,7 +17,9 @@ const Search = () => {
             className="flex-grow pl-5 bg-transparent outline-none text-gray-600 text-sm"
             placeholder="Start your search here"
           ></input>
-          <SearchIcon className="hidden md:inline-flex h-8 flex-shrink-0 bg-blue-500 p-2 text-white rounded-full cursor-pointer md:mx-auto" />
+          <div className='p-1'>
+            <SearchIcon className="hidden md:inline-flex h-8 flex-shrink-0 bg-blue-500 p-2 text-white rounded-full cursor-pointer md:mx-auto" />
+          </div>
     </div>
   );
   }
