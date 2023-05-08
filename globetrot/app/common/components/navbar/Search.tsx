@@ -1,7 +1,11 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useSearchParams,useRouter } from 'next/navigation';
+import { useCallback, useMemo, useState } from "react";
+import qs from 'query-string';
+import dynamic from 'next/dynamic'
+
+
 import {
   HomeIcon,
   SearchIcon,
@@ -9,7 +13,12 @@ import {
 
 
 const Search = () => {
+  const router = useRouter();
+  const params = useSearchParams();
+  const [location, setLocation] = useState("");
   
+
+
   return (
     <div className="flex items-center md:w-1/3  my-auto  md:border-2 rounded-full h-10  py-2 md:shadow-sm">
           <input

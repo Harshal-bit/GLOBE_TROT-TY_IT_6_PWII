@@ -41,6 +41,7 @@ const RentModal = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       location: "",
+      city:"",
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
@@ -52,6 +53,7 @@ const RentModal = () => {
   });
 
   const location = watch("location");
+  
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
@@ -82,6 +84,7 @@ const RentModal = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
     if (step !== STEPS.PRICE) {
       return onNext();
     }
@@ -121,6 +124,14 @@ const RentModal = () => {
         title="Where is your place?"
         subtitle="Help people find your place"
       />
+      <Input
+          id="city"
+          label="City"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
       <CountrySelect
         value={location}
         onChange={(value) => {

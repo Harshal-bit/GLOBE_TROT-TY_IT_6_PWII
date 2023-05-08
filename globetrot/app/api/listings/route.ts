@@ -17,6 +17,7 @@ export async function POST(request: Request) {
     bathroomCount,
     guestCount,
     location,
+    city,
     price,
   } = body;
 
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
     data: {
       title,
       description,
+      city,
       imageSrc,
       roomCount,
       bathroomCount,

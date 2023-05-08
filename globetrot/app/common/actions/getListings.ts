@@ -8,7 +8,7 @@ export interface IListingsParams {
   startDate?: string;
   endDate?: string;
   locationValue?: string;
-  category?: string;
+  city?:string;
 }
 
 export default async function getListings(
@@ -23,8 +23,9 @@ export default async function getListings(
       locationValue,
       startDate,
       endDate,
-      category,
+      city,
     } = params;
+    console.log(params)
 
     let query: any = {};
 
@@ -32,9 +33,6 @@ export default async function getListings(
       query.userId = userId;
     }
 
-    if (category) {
-      query.category = category;
-    }
 
     if (roomCount) {
       query.roomCount = {
@@ -52,6 +50,10 @@ export default async function getListings(
       query.bathroomCount = {
         gte: +bathroomCount
       }
+    }
+
+    if (city) {
+      query.city = city;
     }
 
     if (locationValue) {
@@ -88,7 +90,7 @@ export default async function getListings(
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));
-
+    console.log(safeListings);
     return safeListings;
   } catch (error: any) {
     throw new Error(error);

@@ -5,14 +5,14 @@ import {useCallback} from "react";
 import qs from "query-string";
 interface CategoryBoxProps {
   img: string;
-  location: string;
+  city: string;
   distance: string;
   selected?: boolean;
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
   img,
-  location,
+  city,
   distance,
   selected,
 }) => {
@@ -29,11 +29,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
     const updatedQuery: any = {
       ...currentQuery,
-      category:location
+      city:city
     }
 
-    if(params?.get('category') === location){
-      delete updatedQuery.category;
+    if(params?.get('city') === city){
+      delete updatedQuery.city;
     }
 
     const url = qs.stringifyUrl({
@@ -42,7 +42,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     },{skipNull:true})
 
     router.push(url);
-  },[location, params, router])
+  },[city, params, router])
   
   return (
     <div 
@@ -69,11 +69,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     >
       {/* Left */}
       <div className="relative h-16 w-16">
-        <Image src={img} alt={location} className="rounded-lg" fill />
+        <Image src={img} alt={city} className="rounded-lg" fill />
       </div>
       {/* Right */}
       <div>
-        <h2>{location}</h2>
+        <h2>{city}</h2>
         <h3 className=" text-sm text-gray-500">{distance}</h3>
       </div>
     </div>
