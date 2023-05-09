@@ -80,7 +80,7 @@ export default async function getListings(
     }
 
     const listings = await prisma.listing.findMany({
-      // where: query,
+      where: query,
       orderBy: {
         createdAt: 'desc'
       }
@@ -90,7 +90,7 @@ export default async function getListings(
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));
-    console.log(safeListings);
+    
     return safeListings;
   } catch (error: any) {
     throw new Error(error);
